@@ -1,0 +1,19 @@
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(29, 29, 29);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &_title{
+        margin-left: 5px;
+        color: #F2FCFF;
+        font-weight: 600;
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+}
