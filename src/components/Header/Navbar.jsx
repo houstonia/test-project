@@ -2,10 +2,16 @@ import BurgerMenuLogo from '@assets/icons/burger-menu.svg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { DropDown } from '../DropDown/DropDown';
 import styles from './Navbar.module.scss';
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
 
   const menuToggleHandler = () => {
     setMenuOpen((p) => !p);
@@ -21,8 +27,9 @@ export const Navbar = () => {
           <li>
             <Link to="/results">Результаты</Link>
           </li>
-          <li >
+          <li onClick={toggleDropdown}>
             <Link to="/">О нас</Link>
+            <DropDown isOpen={isOpen}/>
           </li>
         </ul>
       </nav>
