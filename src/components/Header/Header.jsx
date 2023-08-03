@@ -1,6 +1,5 @@
 
 import Logo from '@assets/logo/book-logo.svg';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';

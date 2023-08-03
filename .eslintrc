@@ -1,0 +1,44 @@
+{
+    "extends": [
+      "eslint:recommended",
+      "prettier",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2023,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "no-console": "warn",
+      "prefer-const": "warn",
+      "quotes": ["error", "single"],
+      "jsx-quotes": ["error", "prefer-double"],
+      "indent": ["warn", 2],
+      // "max-len": ["error", { "code": 150 }],
+      "comma-dangle": ["error", "always-multiline"],
+      "semi": ["warn", "always"],
+      "react/jsx-uses-react": 0,
+      "react/react-in-jsx-scope": 0,
+      "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
+      "import/extensions": 0,
+      "import/no-unresolved": 0,
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "import/first": 2,
+      "import/newline-after-import": 2,
+      "import/no-duplicates": 2,
+      "import/prefer-default-export": 0,
+      "no-restricted-exports": 0
+    },
+    "plugins": ["import", "simple-import-sort"]
+  }
+  

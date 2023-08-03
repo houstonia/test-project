@@ -1,0 +1,2 @@
+node_modules/   # Игнорирование директории node_modules
+*.config.js     # Игнорирование всех файлов с расширением .config.js

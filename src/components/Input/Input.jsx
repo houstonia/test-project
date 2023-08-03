@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { memo } from 'react';
 
 import styles from './Input.module.scss';
