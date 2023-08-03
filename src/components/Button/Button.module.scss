@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.button{
+    cursor: pointer;
+    outline: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: $borderRadius;
+    font-size: 1rem;
+    font-family: inherit;
+    background: $midGreen;
+    color: $light;
+    border: 1px solid transparent;
+    transition: 0.3s ease all;
+   
+
+    &:hover {
+        border-color: $midGreen;;
+        color: $midGreen;
+        background: rgba($midGreen, 0.1);
+    }
+    &:active {
+        border-color: $midGreen;;
+        background: linear-gradient(rgba($midGreen, 0.2), rgba($midGreen, 0.3));
+    }
+}

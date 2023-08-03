@@ -1,0 +1,44 @@
+
+
+// colors
+$dark: rgb(29, 29, 29);
+$light: #fff;
+$error:#fa5341;
+$errorContainer:rgba(252, 113, 113, 0.224);
+$success:#008000;
+$successContainer:rgba(163, 234, 163, 0.721);
+
+$green:#B3C6C4;
+$midGreen:#459B96;
+$selectColor:#2C6865;
+// spacing
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+// border radius
+$borderRadius: 12px;
+
+// header height
+$headerHeight: 100px;
+
+
+@mixin breakpoint($point) {
+    @if $point == tablet{
+        //1000px
+        @media (max-width: 1000px) {
+            @content;
+        }
+    }
+    @if $point == md {
+        // 768px
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @if $point == mobile {
+        // 400px
+        @media (max-width: 400px) {
+            @content;
+        }
+    }
+}

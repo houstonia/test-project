@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  mode: "development",
   entry: ["@babel/polyfill", "./src/index.jsx"],
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -12,18 +11,18 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "./dist",
+    // contentBase: "./dist",
     static: {
       directory: path.join(__dirname, "src"),
     },
-    port: 3000,
+    // port: 3000,
     historyApiFallback: true,
-    proxy: {
-      "/api": {
-        target: "http://localhost:8080",
-        changeOrigin: true,
-      },
-    },
+    // proxy: {
+    //   "/api": {
+    //     target: "http://localhost:8080",
+    //     changeOrigin: true,
+    //   },
+    // },
   },
 
   resolve: {
@@ -49,24 +48,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
-      },
-      {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        loader: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-react", "@babel/preset-env"],
-          },
-        },
+        use: 'babel-loader',
       },
       {
         test: /.scss$/,
