@@ -1,15 +1,5 @@
-export const sidebarElems = [
-  {
-    title: '',
-    items: ['Сохранить результаты анализа', 'Экспортировать результаты в svg'],
-  },
-  {
-    title: 'Статус',
-    items: ['Обрабатывается...'],
-  },
 
-];
-export const sidebarElems2=[
+export const sidebarElems=[
   {
     title: 'Полезные ссылки:',
     items: [
