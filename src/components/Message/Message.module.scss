@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+.message{
+    margin: 10px 0;
+    border-radius: $borderRadius;
+    padding: 20px 25px;
+    
+}
+.success{
+    border: 1px solid $success;
+    color: $success;
+    background:$successContainer;
+}
+.error{
+    border: 1px solid $error;
+    color:$error;
+    background:$errorContainer;
+}
