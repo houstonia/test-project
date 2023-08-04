@@ -1,13 +1,16 @@
 import { Footer, Header } from '@components';
 import { Main } from '@pages';
+import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router';
-import { BrowserRouter as Router, Outlet } from 'react-router-dom';
+import {  HashRouter, Outlet } from 'react-router-dom';
 
+import store from './store/index';
 
 function App() {
   return (
-    <div className="app" style={{paddingBottom:'80px'}}>
-        <Router>
+    <div className="app" style={{ paddingBottom: '80px' }}>
+      <Provider store={store}>
+        <HashRouter>
           <Routes>
             <Route
               path="/"
@@ -22,7 +25,8 @@ function App() {
               <Route index element={<Main />} />
             </Route>
           </Routes>
-        </Router>
+        </HashRouter>
+      </Provider>
     </div>
   );
 }
