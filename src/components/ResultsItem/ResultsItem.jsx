@@ -2,11 +2,11 @@
 import Close from '@assets/icons/close.svg';
 import DownArrow from '@assets/icons/down-arrow.svg';
 import UpArrow from '@assets/icons/up-arrow.svg';
+import { deleteDataAsync } from '@store/features/data/dataSlice';
+import { calcGradesCount } from '@utils/helpers/calcHelpers';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { deleteData } from '../../store/features/data/dataSlice';
-import { calcGradesCount } from '../../utils/helpers/calcHelpers';
 import styles from './ResultsItem.module.scss';
 
 export const ResultsItem = ({ item }) => {
@@ -17,7 +17,7 @@ export const ResultsItem = ({ item }) => {
     setView(!view);
   };
   const clickClose = () => {
-    dispatch(deleteData(item.id));
+    dispatch(deleteDataAsync(item.id));
   };
   const dispatch = useDispatch();
   return (
@@ -40,7 +40,7 @@ export const ResultsItem = ({ item }) => {
           <p>Количество пропущенных занятий: {item?.missedDisrespectfulReason}</p>
           <p>Средний балл: {item?.results?.averageGrade}</p>
           <div>
-            <p>Оценки:</p>
+            <p>Оценки:  {grades.length===0&&'Нет'}</p>
             { grades?.map(({count, element}) => (
               // eslint-disable-next-line react/no-unescaped-entities
               <p key={element}> "{element}"- {count}</p>

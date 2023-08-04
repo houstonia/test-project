@@ -1,12 +1,22 @@
 
 export const sidebarElems=[
   {
-    title: 'Полезные ссылки:',
+    title: 'Lorem ipsum:',
     items: [
-      'Lorem ipsum dolor s it amet consectetur adipisicing elit.',
-      ' Nobis sit',
-      'expedita earum delectus asperiores, nisi suscipit assumenda i ure',
-      ' recusandae ea natus vitae praesentium, iusto quibusdam temporibus qu ae.',
+      'Lorem ipsum dolor s it amet',
+      'Nobis sit',
+      'expedita earum delectus asperiores',
+      'recusandae ea natus vitae praesentium',
+      'Esse, assumenda dolorum.',
+    ],
+  },
+  {
+    title: 'Lorem ipsum:',
+    items: [
+      'Lorem ipsum dolor s it amet',
+      'Nobis sit',
+      'expedita earum delectus asperiores',
+      'recusandae ea natus vitae praesentium',
       'Esse, assumenda dolorum.',
     ],
   },

@@ -1,11 +1,12 @@
-import { Button,Input,Message, Sidebar, Table,Title } from '@components';
-import { addNewData } from '@store/features/data/dataSlice';
+import { Button,Input,Message,Sidebar, Table,Title } from '@components';
+import { createDataAsync } from '@store/features/data/dataSlice';
 import { calcExamRes } from '@utils/helpers/calcHelpers';
 import { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 
 import styles from './Main.module.scss';
+
 
 const schema = yup.object().shape({
   missedDisrespectfulReason: yup
@@ -29,12 +30,11 @@ const schema = yup.object().shape({
         .min(2, 'Минимальное значение оценки "2"')
         .max(5, 'Максимальное значение оценки "5"')
         .typeError('Заполните все поля оценок'),
-    ).required('Заполните все поля оценок'),
+    ),
   scoreCount: yup
     .number()
-    .positive('Количество оценок должно быть положительным числом')
+    .min(0,'Минимальное количество оценок - "0" ')
     .required('Поле "количество оценок" является обязательным')
-    .max(72, 'Максимальное количество оценок "72"')
     .typeError('Поле "количество оценок" не должно быть пустым'),
   subject: yup
     .string().trim()
@@ -45,7 +45,7 @@ const schema = yup.object().shape({
 });
 
 export const Main = () => {
-  const [inp, setInp] = useState({scoreCount:0});
+  const [inp, setInp] = useState({});
   const [examInfo,setExamInfo]=useState(undefined);
   const [dataError, setDataError] = useState([]);
   const handleInputChange = useCallback(
@@ -56,14 +56,13 @@ export const Main = () => {
   );
   const dispatch=useDispatch();
   const handleClick = () => {
-  
     schema
       .validate(inp)
       .then((validValue) => {
         setDataError([]);
-        const results=calcExamRes(inp.grades,inp.missedDisrespectfulReason);
+        const results=calcExamRes(inp ?.grades,inp.missedDisrespectfulReason);
         setExamInfo(results);
-        dispatch(addNewData({...validValue,results}));
+        dispatch(createDataAsync({...validValue,results}));
       })
       .catch((error) => {
         setDataError(error.errors);
@@ -94,7 +93,7 @@ export const Main = () => {
           onChange={handleInputChange}
           type="number"
         />
-        {inp.scoreCount?<Title name="Оценки:" />:''}
+        {inp.scoreCount>0?<Title name="Оценки:" />:''}
         <Table cellCount={inp.scoreCount} onSave={handleSave}/>
         <Title name="Пропущенные занятия по неуважительной причине:" />
         <Input
