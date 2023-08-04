@@ -1,3 +1,41 @@
 {
-  "data": []
+  "data": [
+    {
+      "subject": "test",
+      "scoreCount": 1,
+      "grades": [
+        2
+      ],
+      "missedDisrespectfulReason": 1,
+      "results": {
+        "isPassed": false,
+        "averageGrade": 2,
+        "attendanceRatio": 0.01
+      },
+      "id": 1
+    },
+    {
+      "subject": "математика",
+      "scoreCount": 10,
+      "grades": [
+        5,
+        5,
+        4,
+        5,
+        3,
+        4,
+        5,
+        4,
+        5,
+        4
+      ],
+      "missedDisrespectfulReason": 0,
+      "results": {
+        "isPassed": true,
+        "averageGrade": 4.4,
+        "attendanceRatio": 0
+      },
+      "id": 2
+    }
+  ]
 }
