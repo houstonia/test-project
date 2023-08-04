@@ -1,105 +1,44 @@
-import { createAsyncThunk,createSlice } from '@reduxjs/toolkit';
-
-import { API } from '../../constants';
-
-export const fetchData = createAsyncThunk(
-  'data/fetchData',
-  async function(_, {rejectWithValue,dispatch}) {
-    try {
-      const response = await fetch(`${API}/data`); 
-      if (!response.ok) {
-        throw new Error('Server Error!');
-      }
-      const data = await response.json();
-      dispatch(getData(data));
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  },
-);
-
-export const deleteData = createAsyncThunk(
-  'data/deleteData',
-  async function(id, {rejectWithValue, dispatch}) {
-    try {
-      const response = await fetch(`${API}/data/${id}`, {
-        method: 'DELETE',
-      });
-
-      if (!response.ok) {
-        throw new Error('Can\'t delete data. Server error.');
-      }
-
-      dispatch(removeData({id}));
-
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  },
-);
-
-
-export const addNewData = createAsyncThunk(
-  'data/addNewData',
-  async function (newData, {rejectWithValue, dispatch}) {
-    try {
-      const response = await fetch(`${API}/data`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newData),
-      });
-      if (!response.ok) {
-        throw new Error('Can\'t add data. Server error.');
-      }
-
-      const data = await response.json();
-      dispatch(addData(data));
-
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  },
-);
-
-const setError = (state, action) => {
-  state.status = 'rejected';
-  state.error = action.payload;
-};
+import { createDataApi, deleteDataApi,fetchDataApi } from '@api/api';
+import { createSlice } from '@reduxjs/toolkit';
 
 const dataSlice = createSlice({
   name: 'data',
-  initialState: {
-    data: [],
-    status: null,
-    error: null,
+  initialState:{
+    data:[],
   },
   reducers: {
-    getData: (state, action) => {
+    setData: (state, action) => {
       state.data=action.payload;
     },
-    addData(state, action) {
+    addData: (state, action) => {
       state.data.push(action.payload);
     },
-    removeData(state, action) {
-      state.data = state.data.filter(item => item.id !== action.payload.id);
+    deleteData: (state, action) => {
+      const id = action.payload;
+      const index = state.data.findIndex((item) => item.id === id);
+      if (index !== -1) {
+        state.data.splice(index, 1);
+      }
     },
-  },
-  extraReducers: {
-    [fetchData.pending]: (state) => {
-      state.status = 'loading';
-      state.error = null;
-    },
-    [fetchData.fulfilled]: (state, action) => {
-      state.status = 'resolved';
-      state.todos = action.payload;
-    },
-    [fetchData.rejected]: setError,
-    [deleteData.rejected]: setError,
   },
 });
 
-const {addData,getData, removeData} = dataSlice.actions;
+const { setData, addData, deleteData } = dataSlice.actions;
+
+export const fetchDataAsync = () => async (dispatch) => {
+  const data = await fetchDataApi();
+  dispatch(setData(data));
+};
+
+export const createDataAsync = (data) => async (dispatch) => {
+  const newData= await createDataApi(data);
+  dispatch(addData(newData));
+};
+
+
+export const deleteDataAsync = (id) => async (dispatch) => {
+  await deleteDataApi(id);
+  dispatch(deleteData(id));
+};
 
 export default dataSlice.reducer;
