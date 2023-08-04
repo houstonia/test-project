@@ -1,5 +1,5 @@
 import { Footer, Header } from '@components';
-import { Main } from '@pages';
+import { Main ,Results} from '@pages';
 import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router';
 import {  HashRouter, Outlet } from 'react-router-dom';
@@ -23,6 +23,7 @@ function App() {
               }
             >
               <Route index element={<Main />} />
+              <Route path="results" element={<Results />} />
             </Route>
           </Routes>
         </HashRouter>
