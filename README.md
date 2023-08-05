@@ -41,7 +41,7 @@
 │   ├── utils/            # Вспомогательные утилиты
 │   ├── App.jsx           # Главный компонент содержит маршрутизацию.
 │   ├── index.html        # Корневой файл
-│   └── index.js          # Точка входа в приложение
+│   └── index.jsx          # Точка входа в приложение
 ├── .babelrc              # Конфигурация Babel
 ├── .prettierrc           # Конфигурация Prettier
 ├── package.json          # Зависимости и скрипты проекта
@@ -57,7 +57,7 @@
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [JSON Server](https://github.com/typicode/json-server)
 - [Yup](https://github.com/jquense/yup)
-- [Sass](https://github.com/jquense/yup](https://sass-lang.com/))
-- [axios](https://github.com/jquense/yup](https://sass-lang.com/)](https://axios-http.com/docs/intro))
+- [Sass](https://sass-lang.com/)
+- [axios](https://axios-http.com/docs/intro)
 - и другие (см. package.json для полного списка зависимостей)
 
