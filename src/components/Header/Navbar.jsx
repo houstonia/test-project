@@ -16,7 +16,6 @@ export const Navbar = () => {
   const menuToggleHandler = () => {
     setMenuOpen((p) => !p);
   };
-
   return (
     <div className={styles.navbar}>
       <nav className={`${styles.navbar_nav} ${menuOpen ? styles.isMenu : ''}`}>

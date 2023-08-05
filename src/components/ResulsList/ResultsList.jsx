@@ -11,7 +11,6 @@ export const ResultsList = () => {
   useEffect(() => {
     dispatch(fetchDataAsync());
   }, [dispatch]);
-
   return (
     <div className={styles.resultsList}>
       <h1>Результаты</h1>

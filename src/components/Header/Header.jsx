@@ -6,7 +6,6 @@ import styles from './Header.module.scss';
 import { Navbar } from './Navbar';
 
 export const Header = () => {
-
   return (
     <header className={styles.header}>
       <div className={styles.header__content}>

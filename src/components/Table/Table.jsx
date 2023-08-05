@@ -1,5 +1,5 @@
 
-import  { memo, useMemo, useState } from 'react';
+import  {  useMemo, useState } from 'react';
 
 import {Input} from '../Input';
 import styles from './Table.module.scss';
@@ -14,7 +14,7 @@ function getArrOfEmptyScore(scoreCount,setState){
   return [];
 }
 // eslint-disable-next-line react/prop-types
-const TableComp = ({ onSave, cellCount }) => {
+export const Table = ({ onSave, cellCount }) => {
   const [results, setResults] = useState([]);
   const arr=useMemo(()=>getArrOfEmptyScore(cellCount,setResults),[cellCount]);
 
@@ -24,10 +24,9 @@ const TableComp = ({ onSave, cellCount }) => {
     setResults(newResults);
     onSave(newResults);  
   };
-
   return (
     <div className={styles.table}>
-      {arr.map((i,key)=>
+      {arr.map((_,key)=>
         <Input
           key={key}
           type="number"
@@ -37,5 +36,3 @@ const TableComp = ({ onSave, cellCount }) => {
     </div>
   );
 };
-export const Table=memo(TableComp);
-

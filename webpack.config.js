@@ -11,18 +11,7 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    // contentBase: "./dist",
-    static: {
-      directory: path.join(__dirname, "src"),
-    },
-    // port: 3000,
     historyApiFallback: true,
-    // proxy: {
-    //   "/api": {
-    //     target: "http://localhost:8080",
-    //     changeOrigin: true,
-    //   },
-    // },
   },
 
   resolve: {

@@ -10,8 +10,10 @@ import { useDispatch } from 'react-redux';
 import styles from './ResultsItem.module.scss';
 
 export const ResultsItem = ({ item }) => {
+  const dispatch = useDispatch();
   const [view, setView] = useState(false);
   const [grades,setGrades]=useState([]);
+  
   const clickArrow = () => {
     setGrades(calcGradesCount(item?.grades));
     setView(!view);
@@ -19,7 +21,7 @@ export const ResultsItem = ({ item }) => {
   const clickClose = () => {
     dispatch(deleteDataAsync(item.id));
   };
-  const dispatch = useDispatch();
+
   return (
     <div className={styles.resultsItem}>
 

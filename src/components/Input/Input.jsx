@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
-import { memo } from 'react';
-
 import styles from './Input.module.scss';
 
-const InputComponent = ({
+export const Input = ({
   name = '',
   placeholder = '',
   value = '',
@@ -22,5 +20,3 @@ const InputComponent = ({
     </div>
   );
 };
-
-export const Input =memo(InputComponent);
