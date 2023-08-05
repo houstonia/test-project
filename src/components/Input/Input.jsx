@@ -9,7 +9,9 @@ export const Input = ({
   type = 'text',
 }) => {
   return (
-    <div className={`${styles.input} ${type === 'number'? styles.input_num:''}`}>
+    <div
+      className={`${styles.input} ${type === 'number' ? styles.input_num : ''}`}
+    >
       <input
         type={type}
         name={name}

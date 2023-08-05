@@ -1,14 +1,14 @@
-import { createDataApi, deleteDataApi,fetchDataApi } from '@api/api';
+import { createDataApi, deleteDataApi, fetchDataApi } from '@api/api';
 import { createSlice } from '@reduxjs/toolkit';
 
 const dataSlice = createSlice({
   name: 'data',
-  initialState:{
-    data:[],
+  initialState: {
+    data: [],
   },
   reducers: {
     setData: (state, action) => {
-      state.data=action.payload;
+      state.data = action.payload;
     },
     addData: (state, action) => {
       state.data.push(action.payload);
@@ -31,10 +31,9 @@ export const fetchDataAsync = () => async (dispatch) => {
 };
 
 export const createDataAsync = (data) => async (dispatch) => {
-  const newData= await createDataApi(data);
+  const newData = await createDataApi(data);
   dispatch(addData(newData));
 };
-
 
 export const deleteDataAsync = (id) => async (dispatch) => {
   await deleteDataApi(id);

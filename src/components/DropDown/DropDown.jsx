@@ -19,4 +19,3 @@ export const DropDown = ({ isOpen = false }) => {
     </div>
   );
 };
-

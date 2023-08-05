@@ -1,1 +1,1 @@
-export {ResultsItem} from './ResultsItem';
+export { ResultsItem } from './ResultsItem';

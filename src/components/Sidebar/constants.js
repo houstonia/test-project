@@ -1,5 +1,4 @@
-
-export const sidebarElems=[
+export const sidebarElems = [
   {
     title: 'Lorem ipsum:',
     items: [

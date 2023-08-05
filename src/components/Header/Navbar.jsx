@@ -28,7 +28,7 @@ export const Navbar = () => {
           </li>
           <li onClick={toggleDropdown}>
             <Link to="/">О нас</Link>
-            <DropDown isOpen={isOpen}/>
+            <DropDown isOpen={isOpen} />
           </li>
         </ul>
       </nav>

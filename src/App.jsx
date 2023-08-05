@@ -1,8 +1,8 @@
 import { Footer, Header } from '@components';
-import { Main ,Results} from '@pages';
+import { Main, Results } from '@pages';
 import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router';
-import {  HashRouter, Outlet } from 'react-router-dom';
+import { HashRouter, Outlet } from 'react-router-dom';
 
 import store from './store/index';
 
